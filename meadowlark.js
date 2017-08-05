@@ -1,6 +1,7 @@
 let path = require('path');
 let express = require('express');
 let handlebars = require('express-handlebars');
+let getFortune = require('./lib/fortune').fortune;
 
 let app = express();
 let hbs = handlebars.create({
@@ -22,18 +23,8 @@ app.get('/', function(req, res) {
 });
 
 app.get('/about', function(req, res) {
-
-    var fortunes = [
-        "Conquer your fears or they will conquer you.",
-        "Do not fear",
-        "You will have a pleasant surprise.",
-        "Whenever possible, keep it simple."
-    ];
-
-    let randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
-
     res.render('about', {
-        fortune: randomFortune
+        fortune: getFortune()
     });
 });
 
