@@ -1,8 +1,8 @@
-suite('Global Tests', function() {
-    test('page has a valid title', function() {
+suite('Global Tests', () => {
+    test('page has a valid title', () => {
         assert(document.title &&
             document.title.match(/\S/) &&
-            document.title.toUpperCase() !== 'TODO'
+            document.title.toUpperCase() !== 'TODO',
         );
-    })
+    });
 });
