@@ -11,6 +11,7 @@ const hbs = handlebars.create({
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+app.disable('x-powered-by');
 
 app.set('views', path.join(__dirname, 'views/layouts'));
 
@@ -41,6 +42,7 @@ app.get('/header', (req, res) => {
     Object.keys(req.headers).forEach((key) => {
         s += `${key}:${req.headers[key]}\n`;
     });
+
     res.send(s);
 });
 
